@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function createMultiplicationTable(rows, columns){
+                let html = '<table>';
+
+                for (let rowNumber of Array(rows).keys()){
+                    html +=  '<tr>';
+                    for (let columNumber of Array(columns).keys()){
+                        html += `<td>${rowNumber * columNumber}</td>`
+                    }
+                    html+=  '</tr>';
+                }
+                html += '</table>';
+
+                return html;
+            }
+
+            function onGerneratePressed(){
+                let rowsInput = document.getElementById("rows-input").value;
+                let columnsInput = document.getElementById("columns-input").value;
+                let rows = Number(rowsInput);
+                let columns = Number(columnsInput);
+
+                if(!isNaN(rows) && !isNaN(columns) ){
+                    let tabletHTML = createMultiplicationTable(rows,columns);
+                }    
+                else{
+                    alert("Not numbers added");
+                }            
+
+                document.write(tabletHTML);
+
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Multiplication Table Generator</h1>
+        <label>
+            Number of row:
+            <input id="rows-input" type = "text">
+        </label>
+        <label>
+            Number of columns:
+            <input id="columns-input" type = "text">
+        </label>
+        <button onclick = "onGerneratePressed()">Generate</button>
+    </body>
+</html>
